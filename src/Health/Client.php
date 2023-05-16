@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function status($userId)
     {
-        return $this->client->postJson('topapi/health/stepinfo/getuserstatus', ['userid' => $userId]);
+        return $this->client->post('topapi/health/stepinfo/getuserstatus', ['userid' => $userId]);
     }
 
     /**
@@ -37,7 +37,7 @@ class Client extends BaseClient
      */
     public function byUser($id, $dates)
     {
-        return $this->client->postJson('topapi/health/stepinfo/list', ['type' => 0, 'object_id' => $id, 'stat_dates' => $dates]);
+        return $this->client->post('topapi/health/stepinfo/list', ['type' => 0, 'object_id' => $id, 'stat_dates' => $dates]);
     }
 
     /**
@@ -50,7 +50,7 @@ class Client extends BaseClient
      */
     public function byDepartment($id, $dates)
     {
-        return $this->client->postJson('topapi/health/stepinfo/list', ['type' => 1, 'object_id' => $id, 'stat_dates' => $dates]);
+        return $this->client->post('topapi/health/stepinfo/list', ['type' => 1, 'object_id' => $id, 'stat_dates' => $dates]);
     }
 
     /**
@@ -65,6 +65,6 @@ class Client extends BaseClient
     {
         $userIds = implode(',', $userIds);
 
-        return $this->client->postJson('topapi/health/stepinfo/listbyuserid', ['userids' => $userIds, 'stat_date' => $date]);
+        return $this->client->post('topapi/health/stepinfo/listbyuserid', ['userids' => $userIds, 'stat_date' => $date]);
     }
 }

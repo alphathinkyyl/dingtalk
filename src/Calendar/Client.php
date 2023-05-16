@@ -24,6 +24,6 @@ class Client extends BaseClient
      */
     public function create($params)
     {
-        return $this->client->postJson('topapi/calendar/create', $params);
+        return $this->client->post('topapi/calendar/create', $params);
     }
 }

@@ -24,6 +24,6 @@ class Client extends BaseClient
      */
     public function list($userid)
     {
-        return $this->client->postJson('topapi/blackboard/listtopten', compact('userid'));
+        return $this->client->post('topapi/blackboard/listtopten', compact('userid'));
     }
 }

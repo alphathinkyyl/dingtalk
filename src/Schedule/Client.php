@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function add($params)
     {
-        return $this->client->postJson('topapi/workrecord/add', $params);
+        return $this->client->post('topapi/workrecord/add', $params);
     }
 
     /**
@@ -37,7 +37,7 @@ class Client extends BaseClient
      */
     public function update($userId, $recordId)
     {
-        return $this->client->postJson('topapi/workrecord/update', ['userid' => $userId, 'record_id' => $recordId]);
+        return $this->client->post('topapi/workrecord/update', ['userid' => $userId, 'record_id' => $recordId]);
     }
 
     /**
@@ -52,7 +52,7 @@ class Client extends BaseClient
      */
     public function list($userId, $completed, $offset, $limit)
     {
-        return $this->client->postJson('topapi/workrecord/getbyuserid', [
+        return $this->client->post('topapi/workrecord/getbyuserid', [
             'userid' => $userId,
             'status' => (int) $completed,
             'offset' => $offset,

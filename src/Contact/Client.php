@@ -25,7 +25,7 @@ class Client extends BaseClient
      */
     public function labels($offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/extcontact/listlabelgroups', compact('offset', 'size'));
+        return $this->client->post('topapi/extcontact/listlabelgroups', compact('offset', 'size'));
     }
 
     /**
@@ -38,7 +38,7 @@ class Client extends BaseClient
      */
     public function list($offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/extcontact/list', compact('offset', 'size'));
+        return $this->client->post('topapi/extcontact/list', compact('offset', 'size'));
     }
 
     /**
@@ -50,7 +50,7 @@ class Client extends BaseClient
      */
     public function get($userId)
     {
-        return $this->client->postJson('topapi/extcontact/get', ['user_id' => $userId]);
+        return $this->client->post('topapi/extcontact/get', ['user_id' => $userId]);
     }
 
     /**
@@ -62,7 +62,7 @@ class Client extends BaseClient
      */
     public function create($contact)
     {
-        return $this->client->postJson('topapi/extcontact/create', compact('contact'));
+        return $this->client->post('topapi/extcontact/create', compact('contact'));
     }
 
     /**
@@ -77,7 +77,7 @@ class Client extends BaseClient
     {
         $contact = ['user_id' => $userId] + $contact;
 
-        return $this->client->postJson('topapi/extcontact/update', compact('contact'));
+        return $this->client->post('topapi/extcontact/update', compact('contact'));
     }
 
     /**
@@ -89,7 +89,7 @@ class Client extends BaseClient
      */
     public function delete($userId)
     {
-        return $this->client->postJson('topapi/extcontact/delete', ['user_id' => $userId]);
+        return $this->client->post('topapi/extcontact/delete', ['user_id' => $userId]);
     }
 
     /**

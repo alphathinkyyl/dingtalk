@@ -89,7 +89,7 @@ class Client extends BaseClient
      */
     public function create(array $params)
     {
-        return $this->client->postJson('department/create', $params);
+        return $this->client->post('department/create', $params);
     }
 
     /**
@@ -102,7 +102,7 @@ class Client extends BaseClient
      */
     public function update($id, array $params)
     {
-        return $this->client->postJson('department/update', compact('id') + $params);
+        return $this->client->post('department/update', compact('id') + $params);
     }
 
     /**

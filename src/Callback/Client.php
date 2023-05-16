@@ -27,7 +27,7 @@ class Client extends BaseClient
         $params['token'] = $this->app['config']->get('token');
         $params['aes_key'] = $this->app['config']->get('aes_key');
 
-        return $this->client->postJson('call_back/register_call_back', $params);
+        return $this->client->post('call_back/register_call_back', $params);
     }
 
     /**
@@ -50,7 +50,7 @@ class Client extends BaseClient
         $params['token'] = $this->app['config']->get('token');
         $params['aes_key'] = $this->app['config']->get('aes_key');
 
-        return $this->client->postJson('call_back/update_call_back', $params);
+        return $this->client->post('call_back/update_call_back', $params);
     }
 
     /**

@@ -25,7 +25,7 @@ class Client extends BaseClient
      */
     public function send($chatId, $message)
     {
-        return $this->client->postJson('chat/send', [
+        return $this->client->post('chat/send', [
             'chatid' => $chatId, 'msg' => $message,
         ]);
     }
@@ -55,7 +55,7 @@ class Client extends BaseClient
      */
     public function create($params)
     {
-        return $this->client->postJson('chat/create', $params);
+        return $this->client->post('chat/create', $params);
     }
 
     /**
@@ -68,7 +68,7 @@ class Client extends BaseClient
      */
     public function update($chatId, $params)
     {
-        return $this->client->postJson('chat/update', ['chatid' => $chatId] + $params);
+        return $this->client->post('chat/update', ['chatid' => $chatId] + $params);
     }
 
     /**

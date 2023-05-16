@@ -27,7 +27,7 @@ class Client extends BaseClient
      */
     public function sendGeneralMessage($sender, $cid, $message)
     {
-        return $this->client->postJson('message/send_to_conversation', [
+        return $this->client->post('message/send_to_conversation', [
             'sender' => $sender, 'cid' => $cid, 'msg' => $message,
         ]);
     }
@@ -76,7 +76,7 @@ class Client extends BaseClient
              */
             public function progress()
             {
-                return $this->client->postJson('topapi/message/corpconversation/getsendprogress', [
+                return $this->client->post('topapi/message/corpconversation/getsendprogress', [
                     'agent_id' => $this->app['config']['agent_id'], 'task_id' => $this->taskId,
                 ]);
             }
@@ -88,7 +88,7 @@ class Client extends BaseClient
              */
             public function result()
             {
-                return $this->client->postJson('topapi/message/corpconversation/getsendresult', [
+                return $this->client->post('topapi/message/corpconversation/getsendresult', [
                     'agent_id' => $this->app['config']['agent_id'], 'task_id' => $this->taskId,
                 ]);
             }

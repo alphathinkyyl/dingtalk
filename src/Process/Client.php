@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function create($params)
     {
-        return $this->client->postJson('topapi/processinstance/create', $params);
+        return $this->client->post('topapi/processinstance/create', $params);
     }
 
     /**
@@ -36,7 +36,7 @@ class Client extends BaseClient
      */
     public function getIds($params)
     {
-        return $this->client->postJson('topapi/processinstance/listids', $params);
+        return $this->client->post('topapi/processinstance/listids', $params);
     }
 
     /**
@@ -48,7 +48,7 @@ class Client extends BaseClient
      */
     public function get($id)
     {
-        return $this->client->postJson('topapi/processinstance/get', ['process_instance_id' => $id]);
+        return $this->client->post('topapi/processinstance/get', ['process_instance_id' => $id]);
     }
 
     /**
@@ -60,7 +60,7 @@ class Client extends BaseClient
      */
     public function count($userId)
     {
-        return $this->client->postJson('topapi/process/gettodonum', ['userid' => $userId]);
+        return $this->client->post('topapi/process/gettodonum', ['userid' => $userId]);
     }
 
     /**
@@ -74,6 +74,6 @@ class Client extends BaseClient
      */
     public function listByUserId($userId = null, $offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/process/listbyuserid', ['userid' => $userId, 'offset' => $offset, 'size' => $size]);
+        return $this->client->post('topapi/process/listbyuserid', ['userid' => $userId, 'offset' => $offset, 'size' => $size]);
     }
 }

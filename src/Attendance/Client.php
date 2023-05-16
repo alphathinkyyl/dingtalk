@@ -26,7 +26,7 @@ class Client extends BaseClient
      */
     public function schedules($date, $offset = null, $size = null)
     {
-        return $this->client->postJson('topapi/attendance/listschedule', [
+        return $this->client->post('topapi/attendance/listschedule', [
             'workDate' => $date, 'offset' => $offset, 'size' => $size,
         ]);
     }
@@ -41,7 +41,7 @@ class Client extends BaseClient
      */
     public function groups($offset = null, $size = null)
     {
-        return $this->client->postJson('topapi/attendance/getsimplegroups', compact('offset', 'size'));
+        return $this->client->post('topapi/attendance/getsimplegroups', compact('offset', 'size'));
     }
 
     /**
@@ -53,7 +53,7 @@ class Client extends BaseClient
      */
     public function userGroup($userId)
     {
-        return $this->client->postJson('topapi/attendance/getusergroup', ['userid' => $userId]);
+        return $this->client->post('topapi/attendance/getusergroup', ['userid' => $userId]);
     }
 
     /**
@@ -65,7 +65,7 @@ class Client extends BaseClient
      */
     public function records($params)
     {
-        return $this->client->postJson('attendance/listRecord', $params);
+        return $this->client->post('attendance/listRecord', $params);
     }
 
     /**
@@ -77,7 +77,7 @@ class Client extends BaseClient
      */
     public function results($params)
     {
-        return $this->client->postJson('attendance/list', $params);
+        return $this->client->post('attendance/list', $params);
     }
 
     /**
@@ -91,7 +91,7 @@ class Client extends BaseClient
      */
     public function duration($userId, $from, $to)
     {
-        return $this->client->postJson('topapi/attendance/getleaveapproveduration', [
+        return $this->client->post('topapi/attendance/getleaveapproveduration', [
             'userid' => $userId, 'from_date' => $from, 'to_date' => $to,
         ]);
     }
@@ -105,6 +105,6 @@ class Client extends BaseClient
      */
     public function status($params)
     {
-        return $this->client->postJson('topapi/attendance/getleavestatus', $params);
+        return $this->client->post('topapi/attendance/getleavestatus', $params);
     }
 }

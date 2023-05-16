@@ -22,7 +22,7 @@ class Client extends BaseClient
      */
     public function list()
     {
-        return $this->client->postJson('microapp/list');
+        return $this->client->post('microapp/list');
     }
 
     /**
@@ -48,7 +48,7 @@ class Client extends BaseClient
      */
     public function getVisibility($agentId)
     {
-        return $this->client->postJson('microapp/visible_scopes', compact('agentId'));
+        return $this->client->post('microapp/visible_scopes', compact('agentId'));
     }
 
     /**
@@ -60,6 +60,6 @@ class Client extends BaseClient
      */
     public function setVisibility($params)
     {
-        return $this->client->postJson('microapp/set_visible_scopes', $params);
+        return $this->client->post('microapp/set_visible_scopes', $params);
     }
 }

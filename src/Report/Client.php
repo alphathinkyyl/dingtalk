@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function list($params)
     {
-        return $this->client->postJson('topapi/report/list', $params);
+        return $this->client->post('topapi/report/list', $params);
     }
 
     /**
@@ -38,7 +38,7 @@ class Client extends BaseClient
      */
     public function templates($userId = null, $offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/report/template/listbyuserid', [
+        return $this->client->post('topapi/report/template/listbyuserid', [
             'userid' => $userId, 'offset' => $offset, 'size' => $size,
         ]);
     }
@@ -52,7 +52,7 @@ class Client extends BaseClient
      */
     public function unreadCount($userid)
     {
-        return $this->client->postJson('topapi/report/getunreadcount', compact('userid'));
+        return $this->client->post('topapi/report/getunreadcount', compact('userid'));
     }
 
     /**
@@ -64,7 +64,7 @@ class Client extends BaseClient
      */
     public function statistics($report_id)
     {
-        return $this->client->postJson('topapi/report/statistics', compact('report_id'));
+        return $this->client->post('topapi/report/statistics', compact('report_id'));
     }
 
     /**
@@ -79,7 +79,7 @@ class Client extends BaseClient
      */
     public function statisticsByType($report_id, $type, $offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/report/statistics/listbytype', [
+        return $this->client->post('topapi/report/statistics/listbytype', [
             'report_id' => $report_id, 'type' => $type, 'offset' => $offset, 'size' => $size
         ]);
     }
@@ -95,7 +95,7 @@ class Client extends BaseClient
      */
     public function getReceivers($report_id, $offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/report/receiver/list', [
+        return $this->client->post('topapi/report/receiver/list', [
             'report_id' => $report_id, 'offset' => $offset, 'size' => $size
         ]);
     }
@@ -111,7 +111,7 @@ class Client extends BaseClient
      */
     public function getComments($report_id, $offset = 0, $size = 100)
     {
-        return $this->client->postJson('topapi/report/comment/list', [
+        return $this->client->post('topapi/report/comment/list', [
             'report_id' => $report_id, 'offset' => $offset, 'size' => $size
         ]);
     }

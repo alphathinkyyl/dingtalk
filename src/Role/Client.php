@@ -25,7 +25,7 @@ class Client extends BaseClient
      */
     public function list($offset = null, $size = null)
     {
-        return $this->client->postJson('topapi/role/list', compact('offset', 'size'));
+        return $this->client->post('topapi/role/list', compact('offset', 'size'));
     }
 
     /**
@@ -39,7 +39,7 @@ class Client extends BaseClient
      */
     public function getUsers($roleId, $offset = null, $size = null)
     {
-        return $this->client->postJson('topapi/role/simplelist', compact('offset', 'size') + ['role_id' => $roleId]);
+        return $this->client->post('topapi/role/simplelist', compact('offset', 'size') + ['role_id' => $roleId]);
     }
 
     /**
@@ -51,7 +51,7 @@ class Client extends BaseClient
      */
     public function getGroups($groupId)
     {
-        return $this->client->postJson('topapi/role/getrolegroup', ['group_id' => $groupId]);
+        return $this->client->post('topapi/role/getrolegroup', ['group_id' => $groupId]);
     }
 
     /**
@@ -63,7 +63,7 @@ class Client extends BaseClient
      */
     public function get($roleId)
     {
-        return $this->client->postJson('topapi/role/getrole', compact('roleId'));
+        return $this->client->post('topapi/role/getrole', compact('roleId'));
     }
 
     /**
@@ -76,7 +76,7 @@ class Client extends BaseClient
      */
     public function create($groupId, $roleName)
     {
-        return $this->client->postJson('role/add_role', compact('groupId', 'roleName'));
+        return $this->client->post('role/add_role', compact('groupId', 'roleName'));
     }
 
     /**
@@ -89,7 +89,7 @@ class Client extends BaseClient
      */
     public function update($roleId, $roleName)
     {
-        return $this->client->postJson('role/update_role', compact('roleId', 'roleName'));
+        return $this->client->post('role/update_role', compact('roleId', 'roleName'));
     }
 
     /**
@@ -101,7 +101,7 @@ class Client extends BaseClient
      */
     public function delete($roleId)
     {
-        return $this->client->postJson('topapi/role/deleterole', ['role_id' => $roleId]);
+        return $this->client->post('topapi/role/deleterole', ['role_id' => $roleId]);
     }
 
     /**
@@ -113,6 +113,6 @@ class Client extends BaseClient
      */
     public function createGroup($name)
     {
-        return $this->client->postJson('role/add_role_group', compact('name'));
+        return $this->client->post('role/add_role_group', compact('name'));
     }
 }

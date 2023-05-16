@@ -182,7 +182,7 @@ class Client extends BaseClient
      */
     public function create(array $params)
     {
-        return $this->client->postJson('user/create', $params);
+        return $this->client->post('user/create', $params);
     }
 
     /**
@@ -195,7 +195,7 @@ class Client extends BaseClient
      */
     public function update($userid, array $params)
     {
-        return $this->client->postJson('user/update', compact('userid') + $params);
+        return $this->client->post('user/update', compact('userid') + $params);
     }
 
     /**
@@ -235,7 +235,7 @@ class Client extends BaseClient
         $userIds = is_array($userIds) ? implode(',', $userIds) : $userIds;
         $roleIds = is_array($roleIds) ? implode(',', $roleIds) : $roleIds;
 
-        return $this->client->postJson('topapi/role/addrolesforemps', compact('userIds', 'roleIds'));
+        return $this->client->post('topapi/role/addrolesforemps', compact('userIds', 'roleIds'));
     }
 
     /**
@@ -251,7 +251,7 @@ class Client extends BaseClient
         $userIds = is_array($userIds) ? implode(',', $userIds) : $userIds;
         $roleIds = is_array($roleIds) ? implode(',', $roleIds) : $roleIds;
 
-        return $this->client->postJson('topapi/role/removerolesforemps', compact('userIds', 'roleIds'));
+        return $this->client->post('topapi/role/removerolesforemps', compact('userIds', 'roleIds'));
     }
 
     /**
@@ -299,7 +299,7 @@ class Client extends BaseClient
      */
     public function getInactiveUsers($query_date, $offset, $size)
     {
-        return $this->client->postJson('topapi/inactive/user/get', [
+        return $this->client->post('topapi/inactive/user/get', [
             'query_date' => $query_date, 'offset' => $offset, 'size' => $size
         ]);
     }
