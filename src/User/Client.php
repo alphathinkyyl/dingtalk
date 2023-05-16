@@ -28,6 +28,20 @@ class Client extends BaseClient
         return $this->client->get('user/get', compact('userid', 'lang'));
     }
 
+     /**
+     * 获取用户详情
+     *
+     * @param string $userid
+     * @param string|null $lang
+     *
+     * @return mixed
+     */
+    public function getV2($userid, $lang = null)
+    {
+        return $this->client->post('topapi/v2/user/get', ['userid'=>$userid, 'language'=>$lang]);
+    }
+
+
     /**
      * 获取部门用户 Userid 列表
      *
@@ -38,6 +52,18 @@ class Client extends BaseClient
     public function getUserIds($departmentId)
     {
         return $this->client->get('user/getDeptMember', ['deptId' => $departmentId]);
+    }
+
+    /**
+     * 获取部门用户 Userid 列表
+     *
+     * @param int $departmentId
+     *
+     * @return mixed
+     */
+    public function getUserIdsV2($departmentId)
+    {
+        return $this->client->post('topapi/user/listid', ['dept_id' => $departmentId]);
     }
 
     /**
@@ -59,6 +85,24 @@ class Client extends BaseClient
     }
 
     /**
+     * 获取部门用户
+     *
+     * @param int $departmentId
+     * @param int $offset
+     * @param int $size
+     * @param string $order
+     * @param string $lang
+     *
+     * @return mixed
+     */
+    public function getUsersV2($departmentId, $offset, $size, $order = null, $lang = null)
+    {
+        return $this->client->post('topapi/user/listsimple', [
+            'dept_id' => $departmentId, 'cursor' => $offset, 'size' => $size, 'order_field' => $order, 'language' => $lang
+        ]);
+    }
+
+    /**
      * 获取部门用户详情
      *
      * @param int $departmentId
@@ -73,6 +117,25 @@ class Client extends BaseClient
     {
         return $this->client->get('user/listbypage', [
             'department_id' => $departmentId, 'offset' => $offset, 'size' => $size, 'order' => $order, 'lang' => $lang,
+        ]);
+    }
+
+
+    /**
+     * 获取部门用户详情
+     *
+     * @param int $departmentId
+     * @param int $offset
+     * @param int $size
+     * @param string $order
+     * @param string $lang
+     *
+     * @return mixed
+     */
+    public function getDetailedUsersV2($departmentId, $offset, $size, $order = null, $lang = null)
+    {
+        return $this->client->post('topapi/v2/user/list', [
+            'dept_id' => $departmentId, 'cursor' => $offset, 'size' => $size, 'order_field' => $order, 'language' => $lang
         ]);
     }
 
