@@ -1,3 +1,4 @@
+
 <p align="center">
     <h1 align="center">EasyDingTalk</h1>
 </p>
@@ -22,7 +23,7 @@ EasyDingTalk 封装了钉钉身份验证、通讯录管理、消息通知、审�
 ## 安装
 
 ```bash
-composer require mingyoung/dingtalk:^2.0
+composer require alphathinkyyl/dingtalk:^2.0
 ```
 
 ## 使用
