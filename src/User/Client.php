@@ -211,6 +211,20 @@ class Client extends BaseClient
     }
 
     /**
+     * 删除用户
+     *
+     * @param $userid
+     *
+     * @return mixed
+     */
+    public function deleteV2($userid)
+    {
+        return $this->client->post('topapi/v2/user/delete', [
+            'userid' => $userid
+        ]);
+    }
+
+    /**
      * 企业内部应用免登获取用户 Userid
      *
      * @param string $code
