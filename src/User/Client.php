@@ -184,7 +184,18 @@ class Client extends BaseClient
     {
         return $this->client->post('user/create', $params);
     }
-
+    
+    /**
+     * 创建用户
+     *
+     * @param array $params
+     *
+     * @return mixed
+     */
+    public function createV2(array $params)
+    {
+        return $this->client->post('topapi/v2/user/create', $params);
+    }
     /**
      * 更新用户
      *
@@ -196,6 +207,19 @@ class Client extends BaseClient
     public function update($userid, array $params)
     {
         return $this->client->post('user/update', compact('userid') + $params);
+    }
+
+     /**
+     * 更新用户
+     *
+     * @param string $userid
+     * @param array $params
+     *
+     * @return mixed
+     */
+    public function updateV2($userid, array $params)
+    {
+        return $this->client->post('topapi/v2/user/update', compact('userid') + $params);
     }
 
     /**
