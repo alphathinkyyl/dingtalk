@@ -93,6 +93,18 @@ class Client extends BaseClient
     }
 
     /**
+     * 创建部门 V2 接口https://open.dingtalk.com/document/orgapp/create-a-department-v2
+     *
+     * @param array $params
+     *
+     * @return mixed
+     */
+    public function createV2(array $params)
+    {
+        return $this->client->post('topapi/v2/department/create', $params);
+    }
+
+    /**
      * 更新部门
      *
      * @param string $id
@@ -106,6 +118,19 @@ class Client extends BaseClient
     }
 
     /**
+     * 更新部门
+     *
+     * @param string $id
+     * @param array  $params
+     *
+     * @return mixed
+     */
+    public function updateV2($dept_id, array $params)
+    {
+        return $this->client->post('topapi/v2/department/update', compact('dept_id') + $params);
+    }
+
+    /**
      * 删除部门
      *
      * @param string $id
@@ -115,5 +140,17 @@ class Client extends BaseClient
     public function delete($id)
     {
         return $this->client->get('department/delete', compact('id'));
+    }
+
+     /**
+     * 删除部门 https://open.dingtalk.com/document/orgapp/delete-a-department-v2
+     *
+     * @param string $id
+     *
+     * @return mixed
+     */
+    public function deleteV2($dept_id)
+    {
+        return $this->client->get('topapi/v2/department/delete', compact('dept_id'));
     }
 }
